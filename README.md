@@ -14,9 +14,9 @@ Udacity Blockchain Developer Project 3: Smart supply chain management using smar
 
 ![data_model](document/data_model.jpeg)
 
-![sequence](document/sequence.jpeg)
+![sequence](document/sequence_diagram.jpeg)
 
-![state](document/state.jpeg)
+![state](document/state_diagram.jpeg)
 
 ## Contract Deployment
 Not deployed yet.
