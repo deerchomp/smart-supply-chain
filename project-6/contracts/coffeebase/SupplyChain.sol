@@ -159,15 +159,17 @@ contract SupplyChain {
     items[_upc].sku = sku;
     items[_upc].upc = _upc;
     items[_upc].originFarmerID = _originFarmerID;
+    items[_upc].ownerID = _originFarmerID;
     items[_upc].originFarmName = _originFarmName;
     items[_upc].originFarmInformation = _originFarmInformation;
     items[_upc].originFarmLatitude = _originFarmLatitude;
     items[_upc].originFarmLongitude = _originFarmLongitude;
-    items[_upc].productID = _productID;
     items[_upc].productNotes = _productNotes;
+
 
     // Increment sku
     sku = sku + 1;
+
     // Emit the appropriate event
     emit Harvested(_upc);
   }
@@ -223,11 +225,11 @@ contract SupplyChain {
     // Update the appropriate fields - ownerID, distributorID, itemState
     address buyer = msg.sender;
     items[_upc].ownerID = buyer;
-    items[_upc].distirbutorID = buyer;
+    items[_upc].distributorID = buyer;
     items[_upc].itemState = State.Sold;
     
     // Transfer money to farmer
-    address payable sender = items[_upc].originFarmerID;
+    address sender = items[_upc].originFarmerID;
     sender.transfer(items[_upc].productPrice);
 
     // emit the appropriate event
@@ -260,7 +262,7 @@ contract SupplyChain {
     items[_upc].itemState = State.Received;
     
     // Emit the appropriate event
-    emit received(_upc);
+    emit Received(_upc);
   }
 
   // Define a function 'purchaseItem' that allows the consumer to mark an item 'Purchased'

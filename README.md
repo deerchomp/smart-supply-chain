@@ -23,3 +23,8 @@ Not deployed yet.
 
 ## Additional Libraries
 None
+
+## Additional Notes
+
+Ganache test seed:
+`ganache-cli -m "spirit supply whale amount human item harsh scare congress discover talent hamster"`
