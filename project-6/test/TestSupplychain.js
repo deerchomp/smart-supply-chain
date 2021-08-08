@@ -94,11 +94,6 @@ contract('SupplyChain', function(accounts) {
         const resultBufferTwo = await supplyChain.fetchItemBufferTwo.call(upc);
 
         // Verify the result set
-        /*
-        const isProcessed = bufferItem2[5]; //bufferItem[5] is the item state
-        assert.equal(isProcessed, true);
-        assert.equal(eventEmitted, true);
-        */
         assert.equal(resultBufferOne[0], sku, 'Error: Invalid item SKU')
         assert.equal(resultBufferOne[1], upc, 'Error: Invalid item UPC')
         assert.equal(resultBufferOne[2], originFarmerID, 'Error: Missing or Invalid ownerID')
