@@ -18,11 +18,11 @@ Udacity Blockchain Developer Project 3: Smart supply chain management using smar
 
 ![state](document/state_diagram.jpeg)
 
-## Contract Deployment
+## Rinkeby Contract Deployment
 Not deployed yet.
 
 ## Additional Libraries
-None
+truffle-hdwallet-provider@1.0.17
 
 ## Additional Notes
 
