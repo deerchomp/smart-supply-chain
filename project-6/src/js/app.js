@@ -175,7 +175,11 @@ App = {
                 App.originFarmInformation, 
                 App.originFarmLatitude, 
                 App.originFarmLongitude, 
-                App.productNotes
+                App.productNotes,
+
+                //Udacity mentor solved invalid instance error
+                //https://knowledge.udacity.com/questions/572656
+                {from: App.metamaskAccountID}
             );
         }).then(function(result) {
             $("#ftc-item").text(result);
