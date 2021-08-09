@@ -1,4 +1,4 @@
-# Fair Trade Coffee Supply Chain and Data Autiditing DAPP
+# Fair Trade Coffee Supply Chain and Data Auditing DAPP
 Udacity Blockchain Developer Project 3: Smart supply chain management using smart contracts.
 
 Fair Trade Coffee is a decentralized application to track assets along the supply chain from field to cup. Partners of FTC can utilize the blockchain to trustlessly prove the authenticity of their product by utilizing smart contracts at different points in the supply chain.
