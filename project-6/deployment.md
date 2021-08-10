@@ -1,27 +1,29 @@
-# Rinkeby Live Contract Addresses
+❯ truffle migrate --reset --network rinkeby
+Using network 'rinkeby'.
 
-> FarmerRole `0x50aa3c09ee8e46bc0c13fce7e42dae9ce4822c98`
-
-> DistributorRole `0x6bb532cc3bcd255b95774a35887b8570c27bafaf`
-
-> RetailerRole `0xa64d9f8d7c3fa2b574b6bc0bfbea33748be8e35e`
-
-> ConsumerRole `0x318d31d102d1e73e1379a141bf0347e1e6978c0a`
-
-> SupplyChain.sol `0xed73fc0a9ca0c0c0f48d3227e41b42133e1ba8b9`
-
-# Rinkeby Deployment transactions
-
-[SupplyChain](https://rinkeby.etherscan.io/tx/0xe83c8bf29dd65cfca92d4c5d397155315074b27ed662879f17978a0268ad4961)
-
-[FarmerRole](https://rinkeby.etherscan.io/tx/0x2406098997061340a8943ffe52ec81d2cbd00d05f74e5a50d633b3d475bd6fca)
-
-[ConsumerRole](https://rinkeby.etherscan.io/tx/0xde545eb5673a979c4937bf268ec124265ed73edfbe74ceea4d11413aef70799b)
-
-[RetailerRole](https://rinkeby.etherscan.io/tx/0x74b839525f1aecaac65ff4b49eba46821d19f6ddd6d4f44da8501e49f4d4e092)
-
-[DistributorRole](https://rinkeby.etherscan.io/tx/0x4aa846d14185f3a47e3435e915806d2ef3409b33c18f786b3a4bcfafb1236ead)
-
-# Contract Deployer
-
-[0x472E413e40425Ae08f14F0D710625098dc52A04f](https://rinkeby.etherscan.io/address/0x472e413e40425ae08f14f0d710625098dc52a04f)
+Running migration: 1_initial_migration.js
+  Replacing Migrations...
+  ... 0x100967b71c61606c64933236bd757a5986c17d330ce6e867f75f3d83ca00487f
+  Migrations: 0x65d4dd4f5eac0328d84b1727cfe65b74a75629f5
+Saving successful migration to network...
+  ... 0xdec83045eeb505130a6920c9041d122f52548ed2b325ac8976970743f39ccba1
+Saving artifacts...
+Running migration: 2_deploy_contracts.js
+  Replacing FarmerRole...
+  ... 0x2528afcb3d8095ddd55a26d43fbdd1cc570fbf63599f81cb240bc2c58d35ee2a
+  FarmerRole: 0x3bcffd43ca559f51587661bc38dd4376ef31cd7c
+  Replacing DistributorRole...
+  ... 0x913585d10aaf9967b56fc50d6bb0eae8723dc111a4d4bf42484b62e1195026b7
+  DistributorRole: 0x8ea95e403e68fd802d389e8bd418dbf8022b6ae1
+  Replacing RetailerRole...
+  ... 0x2f9a192e0eeb3b86179489ac985aa6e1c21386b80fd148ed128f26b8e7da590e
+  RetailerRole: 0x9eee044daae079f4007fa7b5da863d7cfdd18572
+  Replacing ConsumerRole...
+  ... 0xb92ccff276b754db970f5071a7d967f45e0b9be82017dc27155214c2f8c12b88
+  ConsumerRole: 0xc501eb1a08c906f62ff7e7ec1913e37ad7428c38
+  Replacing SupplyChain...
+  ... 0x8d40a9f4b8ccbd6a1050bb5ee2c7b3ef8c06640bb8ec8e38387735e4ee164b5d
+  SupplyChain: 0x8c11120b4c15a0d71e17da7c16308529be69d8d4
+Saving successful migration to network...
+  ... 0x065a8bd5ee71e809a6dbd74f0b6276eebdaa9b7d8e1fe7e60127c2169207712c
+Saving artifacts...
