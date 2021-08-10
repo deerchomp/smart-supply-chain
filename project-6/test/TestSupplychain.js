@@ -41,6 +41,21 @@ contract('SupplyChain', function(accounts) {
     console.log("Retailer: accounts[3] ", accounts[3])
     console.log("Consumer: accounts[4] ", accounts[4])
 
+    // Role test
+    it("Testing roles can be added", async() => {
+        const supplyChain = await SupplyChain.deployed()
+        await supplyChain.addFarmer(originFarmerID);
+        await supplyChain.addDistributor(distributorID);
+        await supplyChain.addRetailer(retailerID);
+        await supplyChain.addConsumer(consumerID);
+
+        // Verify roles
+        assert(supplyChain.isFarmer(originFarmerID), true);
+        assert(supplyChain.isDistributor(distributorID), true);
+        assert(supplyChain.isRetailer(retailerID), true);
+        assert(supplyChain.isConsumer(consumerID), true);
+    })
+
     // 1st Test
     it("Testing smart contract function harvestItem() that allows a farmer to harvest coffee", async() => {
         const supplyChain = await SupplyChain.deployed()
@@ -55,7 +70,7 @@ contract('SupplyChain', function(accounts) {
         })
 
         // Mark an item as Harvested by calling function harvestItem()
-        await supplyChain.harvestItem(upc, originFarmerID, originFarmName, originFarmInformation, originFarmLatitude, originFarmLongitude, productNotes)
+        await supplyChain.harvestItem(upc, originFarmerID, originFarmName, originFarmInformation, originFarmLatitude, originFarmLongitude, productNotes, { from: originFarmerID })
 
         // Retrieve the just now saved item from blockchain by calling function fetchItem()
         const resultBufferOne = await supplyChain.fetchItemBufferOne.call(upc)
@@ -70,7 +85,7 @@ contract('SupplyChain', function(accounts) {
         assert.equal(resultBufferOne[5], originFarmInformation, 'Error: Missing or Invalid originFarmInformation')
         assert.equal(resultBufferOne[6], originFarmLatitude, 'Error: Missing or Invalid originFarmLatitude')
         assert.equal(resultBufferOne[7], originFarmLongitude, 'Error: Missing or Invalid originFarmLongitude')
-        assert.equal(resultBufferTwo[5], 0, 'Error: Invalid item State')
+        assert.equal(resultBufferTwo[5], itemState, 'Error: Invalid item State')
         assert.equal(eventEmitted, true, 'Invalid event emitted')
     })    
 
@@ -79,11 +94,12 @@ contract('SupplyChain', function(accounts) {
         const supplyChain = await SupplyChain.deployed()
         
         // Declare and Initialize a variable for event
-       var eventEmitted = false; 
+        var eventEmitted = false; 
         
         // Watch the emitted event Processed()
-        var event = await supplyChain.Processed((err, res) => {
-            eventEmitted = true;
+        var event = supplyChain.Processed()
+        await event.watch((err, res) => {
+            eventEmitted = true
         })
 
         // Mark an item as Processed by calling function processtItem()
@@ -114,8 +130,9 @@ contract('SupplyChain', function(accounts) {
         var eventEmitted = false;
         
         // Watch the emitted event Packed()
-        var event = await supplyChain.Packed((err, res) => {
-            eventEmitted = true;
+        var event = supplyChain.Packed()
+        await event.watch((err, res) => {
+            eventEmitted = true
         })
 
         // Mark an item as Packed by calling function packItem()
@@ -146,8 +163,9 @@ contract('SupplyChain', function(accounts) {
         var eventEmitted = false;
         
         // Watch the emitted event ForSale()
-        var event = await supplyChain.ForSale((err, res) => {
-            eventEmitted = true;
+        var event = supplyChain.ForSale()
+        await event.watch((err, res) => {
+            eventEmitted = true
         })
 
         // Mark an item as ForSale by calling function sellItem()
@@ -179,8 +197,9 @@ contract('SupplyChain', function(accounts) {
         var eventEmitted = false; 
         
         // Watch the emitted event Sold()
-        var event = await supplyChain.Sold((err, res) => {
-            eventEmitted = true;
+        var event = supplyChain.Sold()
+        await event.watch((err, res) => {
+            eventEmitted = true
         })
 
         // Mark an item as Sold by calling function buyItem()
@@ -211,8 +230,9 @@ contract('SupplyChain', function(accounts) {
         var eventEmitted = false;
         
         // Watch the emitted event Shipped()
-        var event = await supplyChain.Shipped((err, res) => {
-            eventEmitted = true;
+        var event = supplyChain.Shipped()
+        await event.watch((err, res) => {
+            eventEmitted = true
         })
 
         // Mark an item as Sold by calling function buyItem()
@@ -243,8 +263,9 @@ contract('SupplyChain', function(accounts) {
         var eventEmitted = false;
         
         // Watch the emitted event Received()
-        var event = await supplyChain.Received((err, res) => {
-            eventEmitted = true;
+        var event = supplyChain.Received()
+        await event.watch((err, res) => {
+            eventEmitted = true
         })
 
         // Mark an item as Sold by calling function buyItem()
@@ -276,8 +297,9 @@ contract('SupplyChain', function(accounts) {
         var eventEmitted = false;
         
         // Watch the emitted event Purchased()
-        var event = await supplyChain.Purchased((err, res) => {
-            eventEmitted = true;
+        var event = supplyChain.Purchased()
+        await event.watch((err, res) => {
+            eventEmitted = true
         })
         
         // Mark an item as Sold by calling function buyItem()
